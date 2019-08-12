@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="taixe">Tài Xế</h4>
+            <ng-container *ngFor="let ghe of mangGhe,let index=index">
+                <app-ghe [item]="ghe" (eventChonGhe)="GheDangChon($event)"></app-ghe>
+                <br *ngIf="(index+1)%4===0" />
+            </ng-container>
+        </div>
+        <div class="col-sm-6">
+            <h2>DANH SÁCH GHẾ ĐANG CHỌN ({{soGheDangChon}})</h2>
+            <br>
+            <p *ngFor="let item of danhSachGheDangChon">Ghế: {{item.TenGhe}} ${{item.Gia}} <span style="color:red;cursor:pointer" (click)="HuyGhe(item)">[Hủy]</span></p>
+            <ng-container *ngIf="tongTien!==0">
+                <hr class="border">
+                <div class="dat-ve">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p>Total: ${{tongTien}}</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <button class="btn btn-warning" (click)="DatVe()">Đặt vé</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
