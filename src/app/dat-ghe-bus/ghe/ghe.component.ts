@@ -10,7 +10,6 @@ export class GheComponent implements OnInit {
   @Input() item;
   @Output() eventChonGhe =new EventEmitter();
   trangThaiGhe:boolean=false;
-  gheDaDat:boolean=false;
   constructor() {};
   ChonGhe(){
     if(!this.item.TrangThai){
