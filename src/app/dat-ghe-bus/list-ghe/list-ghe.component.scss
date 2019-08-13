@@ -1,26 +1,30 @@
-.taixe {
-    width: 360px;
-    height: 60px;
-    background-color: #bdbdbd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
-    line-height: 60px;
-}
-
-.dat-ve {
-    .row {
-        align-items: center;
-        justify-content: space-between;
-    }
-    button {
-        width: 100%;
-        font-size: 30px;
+.container {
+    margin-top: 10px;
+    color: orange;
+    font-size: 20px;
+    .taixe {
+        width: 360px;
+        height: 60px;
+        background-color: #bdbdbd;
+        border-radius: 5px;
+        margin-bottom: 12px;
+        text-align: center;
         color: white;
+        line-height: 60px;
     }
-    p {
-        font-size: 20px;
-        margin-top: 15px;
+    .dat-ve {
+        .row {
+            align-items: center;
+            justify-content: space-between;
+        }
+        button {
+            width: 100%;
+            font-size: 30px;
+            color: white;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 15px;
+        }
     }
 }

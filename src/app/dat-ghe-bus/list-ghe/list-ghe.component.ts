@@ -49,33 +49,33 @@ export class ListGheComponent implements OnInit {
   soGheDangChon:number=0;
   tongTien:number=0;
   constructor() { }
-  HuyGhe(ghe){
-    const viTriHuy=this.danhSachGheDangChon.findIndex(item=>{return item.SoGhe===ghe.SoGhe});
-    this.danhSachGheDangChon.splice(viTriHuy,1);
-
-    this.ItemGhe.map(itemGhe=>{
-      if(itemGhe.item.SoGhe===ghe.SoGhe)
-        itemGhe.trangThaiGhe=false;
-    })
-
-    this.soGheDangChon=this.danhSachGheDangChon.length;
-
-    this.TinhTien();
-  }
-  GheDangChon(ghe){
-    const viTriHuy=this.danhSachGheDangChon.findIndex(item=>{return item.SoGhe===ghe.SoGhe});
-    if(viTriHuy===-1) this.danhSachGheDangChon.push(ghe);
-    else this.danhSachGheDangChon.splice(viTriHuy,1);
-
-    this.soGheDangChon=this.danhSachGheDangChon.length;
-
-    this.TinhTien();
-  }
   TinhTien(){
     this.tongTien=0;
     this.danhSachGheDangChon.map(item=>{
       this.tongTien+=item.Gia;
     })
+  }
+  GheDangChon(ghe){
+    const viTriHuy=this.danhSachGheDangChon.findIndex(item=>{return item.SoGhe===ghe.SoGhe});
+
+    if(viTriHuy===-1) this.danhSachGheDangChon.push(ghe);
+    else this.danhSachGheDangChon.splice(viTriHuy,1);
+    
+    this.soGheDangChon=this.danhSachGheDangChon.length;
+
+    this.TinhTien();
+  }
+  HuyGhe(ghe){
+    const viTriHuy=this.danhSachGheDangChon.findIndex(item=>{return item.SoGhe===ghe.SoGhe});
+    this.danhSachGheDangChon.splice(viTriHuy,1);
+
+    this.ItemGhe.map(itemGhe=>{ 
+      if(itemGhe.item.SoGhe===ghe.SoGhe) itemGhe.trangThaiGhe=false;
+    })
+
+    this.soGheDangChon=this.danhSachGheDangChon.length;
+
+    this.TinhTien();
   }
   LuuVaoLocalStorage(mangCanLuu){
     var data=JSON.stringify(mangCanLuu);
@@ -84,8 +84,7 @@ export class ListGheComponent implements OnInit {
   DatVe(){
     this.mangGhe.map(ghe=>{
       this.danhSachGheDangChon.map(gheDaChon=>{
-        if(ghe.SoGhe===gheDaChon.SoGhe)
-          ghe.TrangThai=true;
+        if(ghe.SoGhe===gheDaChon.SoGhe) ghe.TrangThai=true;
       })
     });
     this.LuuVaoLocalStorage(this.mangGhe);
